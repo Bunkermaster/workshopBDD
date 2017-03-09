@@ -34,3 +34,20 @@ CREATE PROCEDURE `insertUtilisateur` (lePrenom VARCHAR(100), leNom VARCHAR(100),
   END$$
 DELIMITER ;
 
+SELECT "CREATION updateUtilisateur" as INFO;
+DROP procedure if exists updateUtilisateur;
+DELIMITER $$
+CREATE PROCEDURE `updateUtilisateur` (leId INT, lePrenom VARCHAR(100), leNom VARCHAR(100), lEmail VARCHAR(100), leId_type INT)
+  BEGIN
+    UPDATE
+      `utilisateur`
+    SET
+      `prenom` = lePrenom,
+      `nom`= leNom,
+      `email` = lEmail,
+      `id_type` = leId_type
+    WHERE
+      id = leId;
+  END$$
+DELIMITER ;
+
